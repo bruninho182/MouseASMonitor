@@ -1,14 +1,14 @@
 <div align="center">
-  <img src="AttackShark.png" width="110" alt="Logo da Attack Shark">
-  <h1>MouseAS</h1>
+  <img src="docs/images/banner-attack-shark.png" width="580" alt="Banner da Attack Shark">
+  <h1>MouseASMonitor</h1>
   <p>Monitor de bateria do Attack Shark R1 para Windows.</p>
-  <p><a href="https://github.com/bruninho182/MouseAS/releases/latest">Baixar para Windows</a> · <a href="#como-usar">Como usar</a> · <a href="#compilar">Compilar</a></p>
-  <img src="docs/images/painel.png" width="450" alt="Painel do MouseAS exibindo 80% de bateria">
+  <p><a href="https://github.com/bruninho182/MouseASMonitor/releases/latest">Baixar para Windows</a> · <a href="#como-usar">Como usar</a> · <a href="#compilar">Compilar</a></p>
+  <img src="docs/images/painel.png" width="450" alt="Painel do MouseASMonitor exibindo 80% de bateria">
 </div>
 
 ## Como usar
 
-1. Abra a página de [Releases](https://github.com/bruninho182/MouseAS/releases/latest).
+1. Abra a página de [Releases](https://github.com/bruninho182/MouseASMonitor/releases/latest).
 2. Na seção **Assets**, baixe **BateriaR1.exe**.
 3. Conecte o receptor USB e coloque o Attack Shark R1 no modo **2,4 GHz**.
 4. Abra o executável. Se o painel estiver aguardando uma leitura, mova ou clique no mouse.
@@ -20,7 +20,7 @@ Passe o cursor sobre o ícone para ver a porcentagem e clique para reabrir o pai
 
 ### Iniciar com o Windows
 
-Clique com o botão direito no ícone do MouseAS e marque **Iniciar com o Windows**. Na próxima vez que você entrar na sua conta, o monitor abrirá na área de notificação com a janela oculta. Clique na opção novamente para desativar.
+Clique com o botão direito no ícone do MouseASMonitor e marque **Iniciar com o Windows**. Na próxima vez que você entrar na sua conta, o monitor abrirá na área de notificação com a janela oculta. Clique na opção novamente para desativar.
 
 Guarde o executável em uma pasta fixa antes de ativar a opção. Se mover o arquivo, abra-o pelo novo local e marque a opção novamente.
 
@@ -54,4 +54,5 @@ Para abrir diretamente na área de notificação, execute `.\BateriaR1.exe --tra
 <img src="docs/images/attack-shark-r1.png" width="220" alt="Attack Shark R1 vermelho ao lado da embalagem">
 
 Projeto independente de [Bruno Ferreira](https://github.com/bruninho182). A marca Attack Shark pertence ao seu titular. O ícone do GitHub vem do [Primer Octicons](https://github.com/primer/octicons), distribuído sob licença MIT.
+
 
