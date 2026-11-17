@@ -18,6 +18,12 @@
 
 Passe o cursor sobre o ícone para ver a porcentagem e clique para reabrir o painel. Se o ícone estiver na lista de ícones ocultos, abra a seta **^** e arraste-o para perto do relógio. Para encerrar o monitor, clique com o botão direito e escolha **Sair**.
 
+### Iniciar com o Windows
+
+Clique com o botão direito no ícone do MouseAS e marque **Iniciar com o Windows**. Na próxima vez que você entrar na sua conta, o monitor abrirá na área de notificação com a janela oculta. Clique na opção novamente para desativar.
+
+Guarde o executável em uma pasta fixa antes de ativar a opção. Se mover o arquivo, abra-o pelo novo local e marque a opção novamente.
+
 ## Leituras e carregamento
 
 | Situação | O que aparece |
@@ -48,3 +54,4 @@ Para abrir diretamente na área de notificação, execute `.\BateriaR1.exe --tra
 <img src="docs/images/attack-shark-r1.png" width="220" alt="Attack Shark R1 vermelho ao lado da embalagem">
 
 Projeto independente de [Bruno Ferreira](https://github.com/bruninho182). A marca Attack Shark pertence ao seu titular. O ícone do GitHub vem do [Primer Octicons](https://github.com/primer/octicons), distribuído sob licença MIT.
+

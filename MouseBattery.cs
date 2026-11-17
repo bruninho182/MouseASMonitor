@@ -182,6 +182,28 @@ static class MouseBattery {
         }
     }
 
+    const string StartupKey = @"Software\Microsoft\Windows\CurrentVersion\Run";
+    const string StartupValueName = "MouseAS";
+
+    static string StartupCommand {
+        get { return "\"" + Application.ExecutablePath + "\" --tray"; }
+    }
+
+    static bool StartsWithWindows() {
+        using (var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(StartupKey)) {
+            return key != null && string.Equals(key.GetValue(StartupValueName) as string,
+                StartupCommand, StringComparison.OrdinalIgnoreCase);
+        }
+    }
+
+    static void SetWindowsStartup(bool enabled) {
+        using (var key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(StartupKey)) {
+            if (key == null) throw new IOException("Chave de inicialização indisponível.");
+            if (enabled) key.SetValue(StartupValueName, StartupCommand);
+            else key.DeleteValue(StartupValueName, false);
+        }
+    }
+
     static void RunTray(bool startHidden) {
         Application.EnableVisualStyles();
         using (var context = new ApplicationContext())
@@ -255,6 +277,29 @@ static class MouseBattery {
             var summary = menu.Items.Add(tooltip);
             summary.Enabled = false;
             menu.Items.Add("Abrir monitor", null, delegate { show(); });
+            var startup = new ToolStripMenuItem("Iniciar com o Windows");
+            menu.Items.Add(startup);
+            menu.Opening += delegate {
+                try {
+                    startup.Checked = StartsWithWindows();
+                    startup.Enabled = true;
+                } catch (UnauthorizedAccessException) {
+                    startup.Enabled = false;
+                } catch (System.Security.SecurityException) {
+                    startup.Enabled = false;
+                } catch (IOException) {
+                    startup.Enabled = false;
+                }
+            };
+            startup.Click += delegate {
+                try {
+                    SetWindowsStartup(!startup.Checked);
+                    startup.Checked = StartsWithWindows();
+                } catch (Exception ex) {
+                    if (!(ex is UnauthorizedAccessException || ex is System.Security.SecurityException || ex is IOException)) throw;
+                    MessageBox.Show("Não foi possível alterar a inicialização automática.", "Attack Shark R1");
+                }
+            };
             menu.Items.Add(new ToolStripSeparator());
             menu.Items.Add("Sair", null, delegate {
                 exiting = true;
@@ -329,6 +374,7 @@ static class MouseBattery {
         }
     }
 }
+
 
 
 
